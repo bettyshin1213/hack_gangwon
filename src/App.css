@@ -1,27 +1,41 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.App-header h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.App-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+}
+
+h2 {
+  color: #282c34;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
 }
 
 .App-link {
@@ -35,4 +49,289 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.chatbot-button {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 130px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.chatbot-container h3 {
+  margin-top: 0;
+}
+
+.chatbot-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-messages {
+  height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.chat-message.user {
+  background-color: #e6f3ff;
+  text-align: right;
+}
+
+.chat-input-form {
+  display: flex;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  font-size: 0.9em;
+}
+
+.chat-submit {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.news-section {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.article-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.article-scroll {
+  display: flex;
+  animation: scroll 60s linear infinite;
+}
+
+.news-article {
+  flex: 0 0 calc(33.333% - 20px);
+  margin-right: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+}
+
+.news-article h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.news-article p {
+  font-size: 14px;
+}
+
+.news-article a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.news-article a:hover {
+  text-decoration: underline;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* 호버 시 애니메이션 일시 정지 */
+.article-container:hover .article-scroll {
+  animation-play-state: paused;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+  .chatbot-section {
+    max-width: 100%;
+  }
+}
+
+@keyframes shake {
+  0%, 80%, 100% { transform: translateX(0); }
+  83% { transform: translateX(-5px); }
+  86% { transform: translateX(5px); }
+  89% { transform: translateX(-5px); }
+  92% { transform: translateX(5px); }
+  95% { transform: translateX(-5px); }
+}
+
+.header-button {
+  position: absolute;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  animation: shake 3s ease-in-out infinite; /* 3초에 한 번씩 애니메이션 */
+}
+
+.header-button:hover {
+  background-color: #45a049;
+  animation: none; /* 호버 시 애니메이션 중지 */
+}
+
+.chat-container {
+  width: 50%;
+  height: 380px;
+  overflow-y: auto; /* 세로 스크롤 가능하도록 설정 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* FullPageChat 컴포넌트 스타일 오버라이드 */
+.chat-container > div {
+  width: 100% !important;
+  height: 50% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.chat-container iframe {
+  width: 100% !important;
+  height: 50% !important;
+  border: none;
+}
+
+/* 메시지 컨테이너에 스크롤 추가 */
+.chat-container .message-container {
+  max-height: calc(100% - 60px) !important; /* 입력 영역 높이를 고려하여 조정 */
+  overflow-y: auto !important; /* 세로 스크롤 가능하도록 설정 */
+}
+
+/* 입력 영역 고정 */
+.chat-container .input-container {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background-color: white;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 섹션 사이의 간격을 조절합니다 */
+}
+
+.chatbot-section {
+  width: 100%;
+  height: 40vh; /* 화면 높이의 40%를 차지하도록 설정 */
+}
+
+.news-section {
+  width: 100%;
+  height: 35vh; /* 화면 높이의 35%를 차지하도록 설정 */
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
+}
+
+.chat-container {
+  height: 100%;
+}
+
+.article-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 필요에 따라 반응형 디자인을 위한 미디어 쿼리를 추가할 수 있습니다 */
+@media (max-width: 768px) {
+  .chatbot-section {
+    height: 50vh; /* 작은 화면에서는 높이를 줄입니다 */
+  }
+
+  .news-section {
+    height: 45vh; /* 작은 화면에서는 뉴스 섹션의 높이를 늘립니다 */
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s forwards; /* 애니메이션 지속시간과 동작 방식을 설정 */
 }

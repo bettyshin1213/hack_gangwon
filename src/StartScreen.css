@@ -1,0 +1,82 @@
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.start-screen {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('screen1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: opacity 0.5s; /* 부드러운 사라짐 효과 */
+}
+
+.start-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 이미지 위에 어두운 오버레이 추가 */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.logo-container {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  margin-right: auto;
+  margin-left: 20px; /* 오른쪽으로 더 이동 */
+  margin-top: 50px;
+  cursor: pointer; /* 클릭 가능함을 나타내는 커서 */
+  transition: transform 0.3s ease; /* 부드러운 변환 효과 */
+}
+
+.logo-container:hover {
+  transform: scale(1.05); /* 호버 시 약간 확대 */
+}
+
+.logo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 애니메이션 클래스 */
+.slide-up {
+  animation: slideUp 0.5s forwards; /* 애니메이션 지속시간과 동작 방식을 설정 */
+}
